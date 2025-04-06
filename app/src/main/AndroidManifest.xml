@@ -12,21 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Canteen">
 
-        <!-- Cart activity -->
+        <!-- Cart Activity -->
         <activity
             android:name=".CartActivity"
             android:exported="false" />
 
-        <!-- Checkout activity -->
+        <!-- Checkout Activity -->
         <activity
             android:name=".ui.theme.CheckoutActivity"
             android:exported="false" />
 
-        <!-- Launcher activity -->
+        <!-- Menu Activity -->
         <activity
             android:name=".ui.theme.MenuActivity"
+            android:exported="false"
+            android:label="@string/app_name" />
+
+        <!-- Register Activity -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:label="Register" />
+
+        <!-- Login Activity (Launcher) -->
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
