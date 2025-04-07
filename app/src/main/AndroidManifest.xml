@@ -17,6 +17,16 @@
             android:name=".CartActivity"
             android:exported="false" />
 
+        <!-- Customer Details Activity -->
+        <activity
+            android:name=".CustomerDetailsActivity"
+            android:exported="false" />
+
+        <!-- Order Summary Activity -->
+        <activity
+            android:name=".OrderSummaryActivity"
+            android:exported="false" />
+
         <!-- Checkout Activity -->
         <activity
             android:name=".ui.theme.CheckoutActivity"

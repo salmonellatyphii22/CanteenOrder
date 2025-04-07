@@ -1,15 +1,15 @@
 package com.example.canteen
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.canteen.adapter.FoodAdapter
 import com.example.canteen.viewmodel.CartViewModel
+import android.widget.Toast
 
 class CartActivity : AppCompatActivity() {
 
@@ -19,7 +19,7 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        // ✅ Same shared ViewModel
+        // ✅ ViewModel from Application
         cartViewModel = (application as MyApplication)
             .viewModelProvider[CartViewModel::class.java]
 
@@ -33,11 +33,14 @@ class CartActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // ✅ Navigate to CustomerDetailsActivity instead of placing the order directly
         findViewById<Button>(R.id.btnCheckout).setOnClickListener {
-            Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show()
-            cartViewModel.clearCart()
-            finish()
+            if (cartItems.isEmpty()) {
+                Toast.makeText(this, "Your cart is empty!", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, CustomerDetailsActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
-
