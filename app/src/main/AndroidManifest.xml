@@ -27,11 +27,6 @@
             android:name=".OrderSummaryActivity"
             android:exported="false" />
 
-        <!-- Checkout Activity -->
-        <activity
-            android:name=".ui.theme.CheckoutActivity"
-            android:exported="false" />
-
         <!-- Menu Activity -->
         <activity
             android:name=".ui.theme.MenuActivity"
